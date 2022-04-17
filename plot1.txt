@@ -1,0 +1,8 @@
+
+dat2 <- read.table("household_power_consumption.txt", header = TRUE, sep = ";", colClasses = c("character","character", rep("numeric",7)), na.strings = "?")
+#library(tidyverse)
+dat2$Date <- as.Date(dat2$Date, format = "%d/%m/%Y")
+x <- subset(dat2, dat2$Date == "2007-02-01" | dat2$Date == "2007-02-02")
+
+x$Global_active_power <- as.numeric(x$Global_active_power)
+hist(x$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")

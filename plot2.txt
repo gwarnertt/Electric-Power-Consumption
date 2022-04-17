@@ -1,0 +1,8 @@
+x$DateTime <- as.POSIXct(paste(x$Date, x$Time))
+Sys.setlocale("LC_TIME", "English")
+
+
+plot(x$DateTime, x$Global_active_power, 
+     type="line", 
+     xlab="", 
+     ylab="Global Active Power (kilowatts)")
